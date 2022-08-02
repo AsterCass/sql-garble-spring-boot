@@ -5,33 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7fcb32c6-be6b-417a-9652-3256f59c72eb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/java/com/github/aster/plugin/demo/config/TestAutoConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/java/com/github/aster/plugin/demo/config/TestConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/java/com/github/aster/plugin/demo/dto/TestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/java/com/github/aster/plugin/demo/service/TestService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/resources/META-INF/spring.factories" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-autoconfigure/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/.mvn/wrapper/MavenWrapperDownloader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/src/main/java/com/github/aster/sample/SampleApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-sample/src/test/java/com/github/aster/sample/SampleApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/demo-spring-boot-starter/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -78,7 +52,7 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "corretto-1.8",
-    "last_opened_file_path": "Z:/workspace/home/test/demo-spring-boot",
+    "last_opened_file_path": "Z:/workspace/home/mybatis-sql-garble/demo-spring-boot",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
@@ -154,7 +128,7 @@
       <updated>1659423569052</updated>
       <workItem from="1659423571678" duration="7781000" />
       <workItem from="1659431440727" duration="623000" />
-      <workItem from="1659432261379" duration="421000" />
+      <workItem from="1659432261379" duration="2391000" />
     </task>
     <servers />
   </component>
