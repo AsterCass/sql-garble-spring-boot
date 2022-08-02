@@ -26,3 +26,4 @@ mvn clean install
 2. 修改两个模块的文件名称（1、2两步可以在idea中使用shift+F6完成）
 3. 修改两个模块的pom文件
 4. 修改config模板的propertires文件
+5. 修改文件路径com.github.aster.plugin -> xxx.xxx.xxx.xx
