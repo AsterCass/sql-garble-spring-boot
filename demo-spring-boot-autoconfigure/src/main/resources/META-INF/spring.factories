@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-com.github.aster.plugin.garble.config.TestAutoConfig
+com.github.aster.plugin.demo.config.TestAutoConfig

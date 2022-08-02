@@ -1,6 +1,6 @@
-package com.github.aster.plugin.garble.config;
+package com.github.aster.plugin.demo.config;
 
-import com.github.aster.plugin.garble.service.TestService;
+import com.github.aster.plugin.demo.service.TestService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

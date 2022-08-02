@@ -1,7 +1,7 @@
-package com.github.aster.plugin.garble.service;
+package com.github.aster.plugin.demo.service;
 
 
-import com.github.aster.plugin.garble.config.TestConfig;
+import com.github.aster.plugin.demo.config.TestConfig;
 
 import javax.annotation.Resource;
 

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.aster.plugin</groupId>
-    <artifactId>mybatis-sql-garble-spring-boot-starter</artifactId>
+    <artifactId>demo-spring-boot-starter</artifactId>
     <version>0.0.3-SNAPSHOT</version>
 
 
@@ -13,7 +13,7 @@
 
         <dependency>
             <groupId>com.github.aster.plugin</groupId>
-            <artifactId>mybatis-sql-garble-spring-boot-autoconfigure</artifactId>
+            <artifactId>demo-spring-boot-autoconfigure</artifactId>
             <version>0.0.3-SNAPSHOT</version>
         </dependency>
 

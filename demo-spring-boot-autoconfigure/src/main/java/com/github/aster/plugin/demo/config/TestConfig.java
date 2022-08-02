@@ -1,4 +1,4 @@
-package com.github.aster.plugin.garble.config;
+package com.github.aster.plugin.demo.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
