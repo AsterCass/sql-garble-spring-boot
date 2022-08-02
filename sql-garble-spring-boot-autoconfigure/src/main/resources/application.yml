@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: sql-garble-spring-boot-autoconfigure
+
+

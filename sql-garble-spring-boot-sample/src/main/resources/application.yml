@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: demo-spring-boot-sample
+com:
+  github:
+    aster:
+      test:
+        dataString: Jack
+        data-dto-list:
+          - id: 111
+            name: mon
+          - id: 222
+            name: dad
+        data-list:
+          - 12345
+          - 23456
+        data-map: {123: Jack, 456: rose}
