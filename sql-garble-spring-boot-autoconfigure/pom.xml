@@ -32,8 +32,26 @@
 
         <!--项目插件依赖：实际工作的插件-->
 
+        <dependency>
+            <groupId>com.github.aster.plugin.garble</groupId>
+            <artifactId>mybatis-sql-garble</artifactId>
+            <version>0.0.5-SNAPSHOT</version>
+        </dependency>
+
 
         <!--前提性依赖：如果有针对某个特定插件开发的插件-->
+
+        <dependency>
+            <groupId>org.mybatis.spring.boot</groupId>
+            <artifactId>mybatis-spring-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>4.5</version>
+        </dependency>
+
 
 
         <!--建议性依赖-->
