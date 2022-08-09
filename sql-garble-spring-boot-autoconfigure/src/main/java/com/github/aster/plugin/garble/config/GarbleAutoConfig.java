@@ -30,8 +30,7 @@ public class GarbleAutoConfig {
     public void addPageInterceptor() {
         GarbleUpdateInterceptor interceptor = new GarbleUpdateInterceptor();
         Properties properties = new Properties();
-        //配置加载
-        properties.putAll(this.garbleConfig.getProperties());
+        properties.putAll(garbleConfig.getPropertiesMap());
         interceptor.setProperties(properties);
         for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
             sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
