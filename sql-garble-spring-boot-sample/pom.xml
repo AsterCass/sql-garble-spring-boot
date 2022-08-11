@@ -6,7 +6,7 @@
     <parent>
         <groupId>com.github.aster.plugin</groupId>
         <artifactId>sql-garble-spring-boot</artifactId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
 
 

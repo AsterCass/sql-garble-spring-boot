@@ -7,7 +7,7 @@
     <parent>
         <groupId>com.github.aster.plugin</groupId>
         <artifactId>sql-garble-spring-boot</artifactId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
 
 
@@ -33,9 +33,9 @@
         <!--项目插件依赖：实际工作的插件-->
 
         <dependency>
-            <groupId>com.github.aster.plugin.garble</groupId>
+            <groupId>com.astercasc</groupId>
             <artifactId>mybatis-sql-garble</artifactId>
-            <version>0.0.5-SNAPSHOT</version>
+            <version>1.0.0</version>
         </dependency>
 
 

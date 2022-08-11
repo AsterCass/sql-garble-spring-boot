@@ -7,12 +7,12 @@
     <parent>
         <groupId>com.github.aster.plugin</groupId>
         <artifactId>sql-garble-spring-boot</artifactId>
-        <version>0.0.5-SNAPSHOT</version>
+        <version>0.0.6-SNAPSHOT</version>
     </parent>
 
     <artifactId>sql-garble-spring-boot-starter</artifactId>
     <name>sql-garble-spring-boot-starter</name>
-    <version>0.0.7-SNAPSHOT</version>
+    <version>0.0.5-SNAPSHOT</version>
 
 
 

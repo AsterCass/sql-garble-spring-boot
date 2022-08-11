@@ -27,7 +27,7 @@ public class GarbleAutoConfig {
 
 
     @PostConstruct
-    public void addPageInterceptor() {
+    public void addGarbleInterceptor() {
         GarbleUpdateInterceptor interceptor = new GarbleUpdateInterceptor();
         Properties properties = new Properties();
         properties.putAll(garbleConfig.getPropertiesMap());
