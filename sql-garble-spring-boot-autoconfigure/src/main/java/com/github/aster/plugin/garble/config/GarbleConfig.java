@@ -19,22 +19,13 @@ public class GarbleConfig {
         return BeanMapUtil.beanToMap(this, GarbleConfig.class);
     }
 
-
-    private List<String> monitorTableList = Arrays.asList(
-            "hr_house_pr", "hr_house", "hr_room", "hr_address");
-
-    private HashMap<String, String> monitoredTableMap = new HashMap<String, String>() {{
-        put("hr_house_pr", "id");
-        put("hr_house", "id");
-        put("hr_address", "id");
-        put("hr_room", "id");
-    }};
+    private HashMap<String, String> monitoredTableMap = new HashMap<>();
 
     private HashMap<String, String> monitoredTableUpdateFlagColMap = new HashMap<String, String>();
 
-    private String defaultFlagColName = "update_record";
+    private String defaultFlagColName = "";
 
-    private List<String> excludedMapperPath = Collections.singletonList("com.qmrz.apply.mapper.MonitorExcludeMapper");
+    private List<String> excludedMapperPath = new ArrayList<>();
 
 
 

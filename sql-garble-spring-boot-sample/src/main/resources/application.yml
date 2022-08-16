@@ -1,17 +1,8 @@
 spring:
   application:
-    name: demo-spring-boot-sample
-com:
-  github:
-    aster:
-      test:
-        dataString: Jack
-        data-dto-list:
-          - id: 111
-            name: mon
-          - id: 222
-            name: dad
-        data-list:
-          - 12345
-          - 23456
-        data-map: {123: Jack, 456: rose}
+    name: sql-garble-spring-boot-sample
+garble:
+  excluded-mapper-path:
+    - "com.aster.mapper.ExcludeMapper"
+  default-flag-col-name: "update_record"
+  monitored-table-map: "{'user_table': 'id', 'log_table': 'id'}"
