@@ -31,10 +31,13 @@ public class GarbleAutoConfig {
         GarbleUpdateInterceptor interceptor = new GarbleUpdateInterceptor();
         Properties properties = new Properties();
         properties.putAll(garbleConfig.getPropertiesMap());
-        interceptor.setProperties(properties);
-        for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
-            sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
+        if((boolean)properties.get("valid")) {
+            interceptor.setProperties(properties);
+            for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
+                sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
+            }
         }
+
     }
 
 

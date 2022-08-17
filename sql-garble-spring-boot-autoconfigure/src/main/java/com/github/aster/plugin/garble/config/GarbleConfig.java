@@ -23,6 +23,8 @@ public class GarbleConfig {
         return BeanMapUtil.beanToMap(this, GarbleConfig.class);
     }
 
+    private Boolean valid = true;
+
     /**
      * 监控表和监控返回字段的Map，一般为主键，("user", "id")
      */
