@@ -5,6 +5,7 @@ garble:
   excluded-mapper-path:
     - "com.aster.mapper.ExcludeMapper"
   default-flag-col-name: "update_record"
+  dealWithUpdatedPath: "com.baidu"
   monitored-table-map: {'user_table': 'id', 'log_table': 'id'}
   garble-function-list:
     - 1

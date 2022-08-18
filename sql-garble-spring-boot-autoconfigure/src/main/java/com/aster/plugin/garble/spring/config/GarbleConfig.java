@@ -1,7 +1,7 @@
-package com.github.aster.plugin.garble.config;
+package com.aster.plugin.garble.spring.config;
 
-import com.github.aster.plugin.garble.enums.GarbleFunctionEnum;
-import com.github.aster.plugin.garble.util.BeanMapUtil;
+import com.aster.plugin.garble.enums.GarbleFunctionEnum;
+import com.aster.plugin.garble.spring.util.BeanMapUtil;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
@@ -23,7 +23,15 @@ public class GarbleConfig {
         return BeanMapUtil.beanToMap(this, GarbleConfig.class);
     }
 
+    /**
+     * 是否生效
+     */
     private Boolean valid = true;
+
+    /**
+     * 标记实现DealWithUpdatedInterface接口的方法路径，加快初始化速度
+     */
+    String dealWithUpdatedPath = "";
 
     /**
      * 监控表和监控返回字段的Map，一般为主键，("user", "id")

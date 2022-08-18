@@ -1,10 +1,8 @@
-package com.github.aster.sample;
+package com.aster.plugin.garble.spring.sample;
 
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
-
-import javax.annotation.Resource;
 
 @Slf4j
 @SpringBootTest

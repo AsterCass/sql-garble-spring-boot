@@ -1,4 +1,4 @@
-package com.github.aster.sample;
+package com.aster.plugin.garble.spring.sample;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

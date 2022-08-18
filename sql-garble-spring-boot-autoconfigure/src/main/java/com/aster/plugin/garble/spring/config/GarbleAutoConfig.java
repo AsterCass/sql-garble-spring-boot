@@ -1,6 +1,6 @@
-package com.github.aster.plugin.garble.config;
+package com.aster.plugin.garble.spring.config;
 
-import com.github.aster.plugin.garble.interceptor.GarbleUpdateInterceptor;
+import com.aster.plugin.garble.interceptor.GarbleUpdateInterceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
