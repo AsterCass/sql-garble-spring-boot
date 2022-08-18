@@ -29,9 +29,9 @@ public class GarbleConfig {
     private Boolean valid = true;
 
     /**
-     * 标记实现DealWithUpdatedInterface接口的方法路径，加快初始化速度
+     * 标记实现DealWithUpdatedInterface接口的方法路径，加快初始化速度，可以不赋值
      */
-    String dealWithUpdatedPath = "";
+    private String dealWithUpdatedPath = "";
 
     /**
      * 监控表和监控返回字段的Map，一般为主键，("user", "id")
@@ -57,7 +57,7 @@ public class GarbleConfig {
      * 需要的功能
      * {@link GarbleFunctionEnum}
      */
-    List<Integer> garbleFunctionList;
+    private List<Integer> garbleFunctionList;
 
 
 
