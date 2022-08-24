@@ -19,7 +19,7 @@ public class UpdatedDataMsgConfig {
     public static final String UPDATED_DATA_MSG = "garble.updated-data-msg";
 
     public Map<String, Object> getPropertiesMap() {
-        return BeanMapUtil.beanToMap(this, GarbleConfig.class);
+        return BeanMapUtil.beanToMap(this, UpdatedDataMsgConfig.class);
     }
 
     /**

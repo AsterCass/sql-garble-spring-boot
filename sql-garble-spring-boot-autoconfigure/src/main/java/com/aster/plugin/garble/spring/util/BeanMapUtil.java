@@ -5,6 +5,9 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * @author astercasc
+ */
 public class BeanMapUtil {
 
 
