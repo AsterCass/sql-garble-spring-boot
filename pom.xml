@@ -12,7 +12,7 @@
 
     <name>mybatis-sql-garble-spring-boot</name>
     <description>Mybatis Sql Garble Spring Boot</description>
-    <url>https://astercasc.com</url>
+    <url>https://github.com/AsterCass/sql-garble-spring-boot</url>
 
     <licenses>
         <license>
@@ -22,10 +22,10 @@
     </licenses>
 
     <scm>
-        <connection>scm:https://gitlab.com/sql-garble/sql-garble-spring-boot.git</connection>
-        <developerConnection>scm:https://gitlab.com/sql-garble/sql-garble-spring-boot.git
+        <connection>scm:https://github.com/AsterCass/sql-garble-spring-boot.git</connection>
+        <developerConnection>scm:https://github.com/AsterCass/sql-garble-spring-boot.git
         </developerConnection>
-        <url>https://gitlab.com/sql-garble/sql-garble-spring-boot</url>
+        <url>https://github.com/AsterCass/sql-garble-spring-boot</url>
     </scm>
 
     <developers>
