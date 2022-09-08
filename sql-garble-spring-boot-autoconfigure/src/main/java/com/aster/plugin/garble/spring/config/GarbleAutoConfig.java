@@ -24,7 +24,7 @@ import java.util.Set;
 @Configuration
 @ConditionalOnBean(SqlSessionFactory.class)
 @EnableConfigurationProperties({GarbleConfig.class, AuthSelectConfig.class,
-        UpdatedDataMsgConfig.class})
+        UpdatedDataMsgConfig.class, AuthInsertConfig.class})
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class GarbleAutoConfig {
 
@@ -38,7 +38,14 @@ public class GarbleAutoConfig {
     private AuthSelectConfig authSelectConfig;
 
     @Resource
+    private AuthInsertConfig authInsertConfig;
+
+    @Resource
     private UpdatedDataMsgConfig updatedDataMsgConfig;
+
+    private GarbleUpdateInterceptor garbleUpdateInterceptor;
+
+    private GarbleQueryInterceptor garbleQueryInterceptor;
 
 
     @PostConstruct
@@ -46,8 +53,10 @@ public class GarbleAutoConfig {
         if (garbleConfig.getValid() && null != garbleConfig.getGarbleFunctionList()) {
 
             Set<Interceptor> interceptorList = new HashSet<>();
+
+
             if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.UPDATED_DATA_MSG.getCode())) {
-                GarbleUpdateInterceptor interceptor = new GarbleUpdateInterceptor();
+                GarbleUpdateInterceptor interceptor = getSingleGarbleUpdateInterceptor();
                 Properties properties = new Properties();
                 properties.putAll(updatedDataMsgConfig.getPropertiesMap());
                 interceptor.setUpdatedDataMsgProperty(properties);
@@ -56,10 +65,18 @@ public class GarbleAutoConfig {
             }
 
             if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.SELECT_AUTHENTICATION.getCode())) {
-                GarbleQueryInterceptor interceptor = new GarbleQueryInterceptor();
+                GarbleQueryInterceptor interceptor = getSingleGarbleQueryInterceptor();
                 Properties properties = new Properties();
                 properties.putAll(authSelectConfig.getPropertiesMap());
                 interceptor.setAuthenticationFilterSelectProperty(properties);
+                interceptorList.add(interceptor);
+            }
+
+            if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.INSERT_AUTHENTICATION.getCode())) {
+                GarbleUpdateInterceptor interceptor = getSingleGarbleUpdateInterceptor();
+                Properties properties = new Properties();
+                properties.putAll(authInsertConfig.getPropertiesMap());
+                interceptor.setInsertAuthProperty(properties);
                 interceptorList.add(interceptor);
             }
 
@@ -67,11 +84,24 @@ public class GarbleAutoConfig {
                 for (Interceptor interceptor : interceptorList) {
                     sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
                 }
-
             }
-
         }
 
+    }
+
+    private GarbleUpdateInterceptor getSingleGarbleUpdateInterceptor() {
+        if (null == this.garbleUpdateInterceptor) {
+            this.garbleUpdateInterceptor = new GarbleUpdateInterceptor();
+        }
+        return this.garbleUpdateInterceptor;
+
+    }
+
+    private GarbleQueryInterceptor getSingleGarbleQueryInterceptor() {
+        if (null == this.garbleQueryInterceptor) {
+            this.garbleQueryInterceptor = new GarbleQueryInterceptor();
+        }
+        return this.garbleQueryInterceptor;
     }
 
 
