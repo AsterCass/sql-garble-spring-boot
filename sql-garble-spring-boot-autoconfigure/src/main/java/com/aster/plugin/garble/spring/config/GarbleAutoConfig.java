@@ -80,22 +80,11 @@ public class GarbleAutoConfig {
                 interceptorList.add(interceptor);
             }
 
-            new Thread(() -> {
-                boolean hasPageInterceptor = false;
-                SqlSessionFactory sqlSessionFactory = sqlSessionFactoryList.get(0);
-                org.apache.ibatis.session.Configuration configuration = sqlSessionFactory.getConfiguration();
-                while (!hasPageInterceptor) {
-                    if (!configuration.getInterceptors().isEmpty()) {
-                        hasPageInterceptor = true;
-                    }
+            for (SqlSessionFactory sqlSessionFactory : sqlSessionFactoryList) {
+                for (Interceptor interceptor : interceptorList) {
+                    sqlSessionFactory.getConfiguration().addInterceptor(interceptor);
                 }
-                for (SqlSessionFactory sqlSessionFact : sqlSessionFactoryList) {
-                    for (Interceptor interceptor : interceptorList) {
-                        sqlSessionFact.getConfiguration().addInterceptor(interceptor);
-                    }
-                }
-            }).start();
-
+            }
 
         }
 
