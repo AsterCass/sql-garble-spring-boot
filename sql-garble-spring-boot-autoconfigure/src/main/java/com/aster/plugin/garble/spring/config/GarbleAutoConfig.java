@@ -1,22 +1,23 @@
 package com.aster.plugin.garble.spring.config;
 
+import com.aster.plugin.garble.enums.AuthenticationTypeEnum;
 import com.aster.plugin.garble.enums.GarbleFunctionEnum;
 import com.aster.plugin.garble.interceptor.GarbleQueryInterceptor;
 import com.aster.plugin.garble.interceptor.GarbleUpdateInterceptor;
+import com.aster.plugin.garble.service.SpecifiedMethodGenerator;
 import org.apache.ibatis.plugin.Interceptor;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.mybatis.spring.boot.autoconfigure.MybatisAutoConfiguration;
 import org.springframework.boot.autoconfigure.AutoConfigureAfter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Properties;
-import java.util.Set;
+import java.lang.reflect.Method;
+import java.util.*;
 
 /**
  * @author astercasc
@@ -27,6 +28,10 @@ import java.util.Set;
         UpdatedDataMsgConfig.class, AuthInsertConfig.class})
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class GarbleAutoConfig {
+
+    @Resource
+    private ApplicationContext applicationContext;
+    ;
 
     @Resource
     private List<SqlSessionFactory> sqlSessionFactoryList;
@@ -59,24 +64,56 @@ public class GarbleAutoConfig {
                 GarbleUpdateInterceptor interceptor = getSingleGarbleUpdateInterceptor();
                 Properties properties = new Properties();
                 properties.putAll(updatedDataMsgConfig.getPropertiesMap());
-                interceptor.setUpdatedDataMsgProperty(properties);
+                //spring 获取对象
+                Map<Method, Object> methodObjectMap = new HashMap<>();
+                List<Method> methods =
+                        SpecifiedMethodGenerator.loadUpdatedMsgBySubTypes(
+                                properties.getProperty("dealWithUpdatedPath"));
+                if (0 != methods.size()) {
+                    for (Method method : methods) {
+                        methodObjectMap.put(method,
+                                applicationContext.getBean(method.getDeclaringClass()));
+                    }
+                }
+                interceptor.setUpdatedDataMsgProperty(properties, methodObjectMap);
                 interceptorList.add(interceptor);
-
             }
-
             if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.SELECT_AUTHENTICATION.getCode())) {
                 GarbleQueryInterceptor interceptor = getSingleGarbleQueryInterceptor();
                 Properties properties = new Properties();
                 properties.putAll(authSelectConfig.getPropertiesMap());
-                interceptor.setAuthenticationFilterSelectProperty(properties);
+                //spring 获取对象
+                Map<Method, Object> methodObjectMap = new HashMap<>();
+                List<Method> methods =
+                        SpecifiedMethodGenerator.loadAuthCodeBySubTypes(
+                                properties.getProperty("authCodePath"),
+                                AuthenticationTypeEnum.SELECT);
+                if (0 != methods.size()) {
+                    for (Method method : methods) {
+                        methodObjectMap.put(method,
+                                applicationContext.getBean(method.getDeclaringClass()));
+                    }
+                }
+                interceptor.setAuthenticationFilterSelectProperty(properties, methodObjectMap);
                 interceptorList.add(interceptor);
             }
-
             if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.INSERT_AUTHENTICATION.getCode())) {
                 GarbleUpdateInterceptor interceptor = getSingleGarbleUpdateInterceptor();
                 Properties properties = new Properties();
                 properties.putAll(authInsertConfig.getPropertiesMap());
-                interceptor.setInsertAuthProperty(properties);
+                //spring 获取对象
+                Map<Method, Object> methodObjectMap = new HashMap<>();
+                List<Method> methods =
+                        SpecifiedMethodGenerator.loadAuthCodeBySubTypes(
+                                properties.getProperty("authCodePath"),
+                                AuthenticationTypeEnum.INSERT);
+                if (0 != methods.size()) {
+                    for (Method method : methods) {
+                        methodObjectMap.put(method,
+                                applicationContext.getBean(method.getDeclaringClass()));
+                    }
+                }
+                interceptor.setInsertAuthProperty(properties, methodObjectMap);
                 interceptorList.add(interceptor);
             }
 
