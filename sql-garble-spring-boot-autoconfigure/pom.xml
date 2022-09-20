@@ -7,13 +7,13 @@
     <parent>
         <groupId>com.astercasc</groupId>
         <artifactId>sql-garble-spring-boot</artifactId>
-        <version>1.2.4</version>
+        <version>1.2.5</version>
     </parent>
 
 
     <artifactId>sql-garble-spring-boot-autoconfigure</artifactId>
     <name>sql-garble-spring-boot-autoconfigure</name>
-    <version>1.2.4</version>
+    <version>1.2.5</version>
 
 
     <dependencies>
@@ -35,7 +35,7 @@
         <dependency>
             <groupId>com.astercasc</groupId>
             <artifactId>mybatis-sql-garble</artifactId>
-            <version>1.2.6</version>
+            <version>1.2.7</version>
         </dependency>
 
 
