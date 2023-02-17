@@ -44,7 +44,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
         <mybatis-spring-boot.version>2.2.2</mybatis-spring-boot.version>
-        <spring-boot.version>2.7.2</spring-boot.version>
+        <spring-boot.version>2.7.8</spring-boot.version>
     </properties>
 
     <modules>

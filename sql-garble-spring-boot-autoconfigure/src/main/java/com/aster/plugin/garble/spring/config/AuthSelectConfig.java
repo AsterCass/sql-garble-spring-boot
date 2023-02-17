@@ -1,5 +1,6 @@
 package com.aster.plugin.garble.spring.config;
 
+import com.aster.plugin.garble.enums.AuthenticationStrategyEnum;
 import com.aster.plugin.garble.spring.util.BeanMapUtil;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
@@ -44,6 +45,7 @@ public class AuthSelectConfig {
 
     /**
      * 监控表和权限策略
+     * {@link AuthenticationStrategyEnum}
      */
     private Map<String, Integer> monitoredTableAuthStrategyMap = new HashMap<>();
 
