@@ -17,7 +17,12 @@ import org.springframework.context.annotation.Configuration;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 import java.lang.reflect.Method;
-import java.util.*;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Properties;
+import java.util.Set;
 
 /**
  * @author astercasc
@@ -31,7 +36,6 @@ public class GarbleAutoConfig {
 
     @Resource
     private ApplicationContext applicationContext;
-    ;
 
     @Resource
     private List<SqlSessionFactory> sqlSessionFactoryList;
