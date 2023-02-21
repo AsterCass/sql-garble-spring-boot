@@ -9,6 +9,10 @@ spring:
     #引擎
     driver-class-name: com.mysql.cj.jdbc.Driver
 
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
 garble:
   valid: true
   garble-function-list:
@@ -34,7 +38,7 @@ garble:
       default-auth-strategy: 3
       #在此map中的的sql不受到监控，即使包含监控表
       excluded-mapper-path:
-        - "com.aster.mapper.ExcludeMapperRed"
+        - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"
 
 
 

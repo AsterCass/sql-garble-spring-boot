@@ -7,7 +7,7 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 @org.apache.ibatis.annotations.Mapper
-public interface GarbleTaskMapper extends Mapper<GarbleTask> {
+public interface GarbleTaskExcludeMapper extends Mapper<GarbleTask> {
 
 
     @SuppressWarnings("all")
