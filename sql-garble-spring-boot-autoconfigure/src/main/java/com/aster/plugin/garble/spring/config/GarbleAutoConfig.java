@@ -30,7 +30,7 @@ import java.util.Set;
 @Configuration
 @ConditionalOnBean(SqlSessionFactory.class)
 @EnableConfigurationProperties({GarbleConfig.class, AuthSelectConfig.class,
-        UpdatedDataMsgConfig.class, AuthInsertConfig.class})
+        UpdatedDataMsgConfig.class, AuthInsertConfig.class, AuthUpdateConfig.class})
 @AutoConfigureAfter(MybatisAutoConfiguration.class)
 public class GarbleAutoConfig {
 

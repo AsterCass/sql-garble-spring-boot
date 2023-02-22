@@ -17,12 +17,19 @@ garble:
   valid: true
   garble-function-list:
     - 2
+    - 1
+  #更新回调
+  updated-data-msg:
+    #默认更新标记字段
+    default-flag-col-name: "update_record"
+    #监控表和回调字段的对应关系，一般为主键
+    monitored-table-map: { 'garble_task': 'id' }
   #鉴权
   auth:
     #查询鉴权
     select:
       #标记实现AuthenticationCodeInterface接口的方法路径，加快加快初始化速度，可以不赋值
-      auth-code-path: "com.aster"
+      auth-code-path: "com.aster.plugin.garble.spring.sample.call"
       #监控表列表
       monitored-table-list:
         - "garble_task"
