@@ -78,11 +78,6 @@
                 <version>2.0.0</version>
             </dependency>
 
-            <dependency>
-                <groupId>com.astercasc</groupId>
-                <artifactId>sql-garble-spring-boot-autoconfigure</artifactId>
-                <version>2.0.0</version>
-            </dependency>
 
 
             <!--项目插件依赖：实际工作的插件-->
@@ -142,12 +137,6 @@
 
             <!--自选性依赖-->
 
-            <!-- 这个就是为让Application可以直接启动，没什么用处-->
-            <dependency>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-web</artifactId>
-                <version>${spring-boot.version}</version>
-            </dependency>
 
         </dependencies>
     </dependencyManagement>

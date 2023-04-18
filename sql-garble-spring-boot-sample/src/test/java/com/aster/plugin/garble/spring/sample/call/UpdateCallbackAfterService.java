@@ -11,7 +11,7 @@ import java.util.Map;
 
 @Slf4j
 @Service
-public class UpdateCallbackService implements DealWithUpdatedInterface {
+public class UpdateCallbackAfterService implements DealWithUpdatedInterface {
 
 
     /**
@@ -19,10 +19,10 @@ public class UpdateCallbackService implements DealWithUpdatedInterface {
      *
      * @param updatedTableMap 更新数据
      */
-    @DealWithUpdated(priority = 1)
+    @DealWithUpdated(priority = 2)
     @Override
     public void execute(Map<String, List<String>> updatedTableMap) {
-        log.info("[op:execute] first");
+        log.info("[op:execute] second");
         log.info(JSON.toJSONString(updatedTableMap));
     }
 

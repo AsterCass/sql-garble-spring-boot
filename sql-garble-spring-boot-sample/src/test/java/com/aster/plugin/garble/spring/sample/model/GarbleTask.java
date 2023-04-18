@@ -1,4 +1,4 @@
-package com.aster.plugin.garble.spring.sample.bean;
+package com.aster.plugin.garble.spring.sample.model;
 
 import lombok.Data;
 

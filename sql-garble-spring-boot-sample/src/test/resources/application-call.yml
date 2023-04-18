@@ -1,0 +1,14 @@
+garble:
+  valid: true
+  garble-function-list:
+    - 1
+  #更新回调
+  updated-data-msg:
+    #监控表和回调字段的对应关系，一般为主键
+    monitored-table-map: { 'garble_task': 'id', 'garble_employee': 'id' }
+    monitored-table-update-flag-col-map: { 'garble_task': 'update_record', 'garble_employee': 'update_record' }
+    #在此map中的的sql不受到监控，即使包含监控表
+    excluded-mapper-path:
+      - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"
+
+

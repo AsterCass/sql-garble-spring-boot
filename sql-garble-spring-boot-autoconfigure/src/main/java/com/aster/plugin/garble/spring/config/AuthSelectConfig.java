@@ -51,6 +51,7 @@ public class AuthSelectConfig {
 
     /**
      * 监控表和权限策略，当monitoredTableAuthStrategyMap无法查询到需要监控表的权限策略的时候，使用默认权限测率
+     * {@link AuthenticationStrategyEnum}
      */
     private Integer defaultAuthStrategy = -1;
 

@@ -12,40 +12,10 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+logging:
+  level:
+    com.aster.plugin.garble.spring.sample: debug
 
-garble:
-  valid: true
-  garble-function-list:
-    - 2
-    - 1
-  #更新回调
-  updated-data-msg:
-    #默认更新标记字段
-    default-flag-col-name: "update_record"
-    #监控表和回调字段的对应关系，一般为主键
-    monitored-table-map: { 'garble_task': 'id' }
-  #鉴权
-  auth:
-    #查询鉴权
-    select:
-      #标记实现AuthenticationCodeInterface接口的方法路径，加快加快初始化速度，可以不赋值
-      auth-code-path: "com.aster.plugin.garble.spring.sample.call"
-      #监控表列表
-      monitored-table-list:
-        - "garble_task"
-        - "garble_else.garble_task"
-        - "garble_employee"
-      #监控表和权限标记列
-      monitored-table-auth-col-map: { 'garble_task': 'auth_code_col', 'garble_employee': 'c_id' }
-      #监控表的默认权限标记列，当monitored-table-update-flag-col-map无法查询到需要监控表的权限标记列的时候，使用默认权限标记列
-      default-auth-col-name: "auth_code_col"
-      #监控表和权限策略
-      monitored-table-auth-strategy-map: { 'garble_task': 3, 'garble_employee': 1 }
-      #监控表和权限策略，当monitored-table-auth-strategy-map无法查询到需要监控表的权限策略的时候，使用默认权限测率
-      default-auth-strategy: 3
-      #在此map中的的sql不受到监控，即使包含监控表
-      excluded-mapper-path:
-        - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"
 
 
 
