@@ -33,6 +33,7 @@ public class UpdateCallbackTest {
         //test update one col
         //{"garble_task":["7"]}
         {
+            log.info("[op:simpleUpdateCallbackTest] call back {\"garble_task\":[\"7\"]}");
             garbleTaskMapper.updateOne();
             List<GarbleTask> taskList = garbleTaskExcludeMapper.getCallChangeTaskCol();
             Assert.assertNotNull(taskList);
@@ -42,6 +43,7 @@ public class UpdateCallbackTest {
         //test for update multi col
         //{"garble_task":["4","5"]}
         {
+            log.info("[op:simpleUpdateCallbackTest] call back {\"garble_task\":[\"4\",\"5\"]}");
             garbleTaskMapper.updateMulti();
             List<GarbleTask> taskList = garbleTaskExcludeMapper.getCallChangeTaskCol();
             Assert.assertNotNull(taskList);
@@ -50,8 +52,10 @@ public class UpdateCallbackTest {
             garbleTaskExcludeMapper.updateOneCallback(5L, "工作5");
         }
         //test for update multi table
-        //todo not support
+        //{"garble_employee":["22"],"garble_task":["4","5"]}
         {
+            log.info("[op:simpleUpdateCallbackTest] " +
+                    "call back {\"garble_employee\":[\"22\"],\"garble_task\":[\"4\",\"5\"]}");
             garbleTaskMapper.updateMultiTab();
             garbleTaskExcludeMapper.updateOneCallback(4L, "工作4");
             garbleTaskExcludeMapper.updateOneCallback(5L, "工作5");
@@ -60,6 +64,7 @@ public class UpdateCallbackTest {
         //test for tk.mapper sql
         //{"garble_task":["4","5"]}
         {
+            log.info("[op:simpleUpdateCallbackTest] call back {\"garble_task\":[\"4\",\"5\"]}");
             Example simpleEx = new Example(GarbleTask.class);
             simpleEx.and().andEqualTo("eId", 22);
             GarbleTask newGarbleT = new GarbleTask();
@@ -79,8 +84,10 @@ public class UpdateCallbackTest {
     @Test
     public void complexUpdateCallbackTest() {
         //test for join
-        //{"garble_task":["4","5"]}
+        //{"garble_employee":["22"],"garble_task":["4","5"]}
         {
+            log.info("[op:complexUpdateCallbackTest] " +
+                    "call back {\"garble_employee\":[\"22\"],\"garble_task\":[\"4\",\"5\"]}}");
             garbleTaskMapper.updateJoin();
             List<GarbleTask> taskList = garbleTaskExcludeMapper.getCallChangeTaskCol();
             Assert.assertNotNull(taskList);
@@ -91,6 +98,7 @@ public class UpdateCallbackTest {
         //test for child
         //{"garble_task":["4","5"]}
         {
+            log.info("[op:complexUpdateCallbackTest] call back {\"garble_task\":[\"4\",\"5\"]}");
             garbleTaskMapper.updateChild();
             List<GarbleTask> taskList = garbleTaskExcludeMapper.getCallChangeTaskCol();
             Assert.assertNotNull(taskList);

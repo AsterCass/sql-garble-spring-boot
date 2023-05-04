@@ -11,4 +11,8 @@ garble:
     excluded-mapper-path:
       - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"
 
+logging:
+  level:
+    com.aster.plugin.garble.spring.sample: info
+
 
