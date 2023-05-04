@@ -1,0 +1,20 @@
+garble:
+  valid: true
+  garble-function-list:
+    - 3
+  #鉴权
+  auth:
+    #更新授权
+    insert:
+      #标记实现AuthenticationCodeInterface接口的方法路径，加快加快初始化速度，可以不赋值
+      auth-code-path: "com.baidu"
+      #监控表列表
+      monitored-table-list:
+        - "user"
+      #监控表和权限标记列
+      monitored-table-auth-col-map: { 'user_table': 'auth_code_o', 'log_table': 'auth_code_t' }
+      #监控表的默认权限标记列，当monitored-table-update-flag-col-map无法查询到需要监控表的权限标记列的时候，使用默认权限标记列
+      default-auth-col-name: "auth_code"
+      #在此map中的的sql不受到监控，即使包含监控表
+      excluded-mapper-path:
+        - "com.aster.mapper.ExcludeMapperRed"
