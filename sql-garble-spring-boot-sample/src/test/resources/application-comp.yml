@@ -1,6 +1,6 @@
 garble:
   valid: true
-  garble-function-list: [ 2, 4 ]
+  garble-function-list: [ 2, 3, 4 ]
   #鉴权
   auth:
     #查询鉴权
@@ -38,6 +38,17 @@ garble:
       monitored-table-auth-strategy-map: { 'garble_employee': 1 }
       #监控表和权限策略，当monitored-table-auth-strategy-map无法查询到需要监控表的权限策略的时候，使用默认权限测率
       default-auth-strategy: 3
+      #在此map中的的sql不受到监控，即使包含监控表
+      excluded-mapper-path:
+        - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"
+    #插入授权
+    insert:
+      #监控表列表
+      monitored-table-list:
+        - "garble_task"
+        - "garble_else.garble_task"
+      #监控表的默认权限标记列，当monitored-table-update-flag-col-map无法查询到需要监控表的权限标记列的时候，使用默认权限标记列
+      default-auth-col-name: "auth_code_col"
       #在此map中的的sql不受到监控，即使包含监控表
       excluded-mapper-path:
         - "com.aster.plugin.garble.spring.sample.mapper.GarbleTaskExcludeMapper"

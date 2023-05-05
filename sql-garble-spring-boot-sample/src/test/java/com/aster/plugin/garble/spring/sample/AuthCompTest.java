@@ -102,7 +102,32 @@ public class AuthCompTest {
             garbleTaskExcludeMapper.updateOneCallback(15L, "工作10");
             garbleTaskExcludeMapper.updateEmpCallback(88L, "ww");
         }
-
+        {
+            //insert sql
+            garbleTaskMapper.insertAuthSimple(30L);
+            //check
+            Example example = new Example(GarbleTask.class);
+            example.and().andEqualTo("authCodeCol", "1234");
+            int count = garbleTaskExcludeMapper.selectCountByExample(example);
+            Assert.assertEquals(count, 5);
+            //roll back
+            garbleTaskExcludeMapper.deleteByPrimaryKey(30L);
+        }
+        {
+            //insert tk mybatis
+            GarbleTask garbleTask = new GarbleTask();
+            garbleTask.setId(30L);
+            garbleTask.setTName("工作30x");
+            garbleTask.setEId(3000L);
+            garbleTaskMapper.insertSelective(garbleTask);
+            //check
+            Example example = new Example(GarbleTask.class);
+            example.and().andEqualTo("authCodeCol", "1234");
+            int count = garbleTaskExcludeMapper.selectCountByExample(example);
+            Assert.assertEquals(count, 5);
+            //roll back
+            garbleTaskExcludeMapper.deleteByPrimaryKey(30L);
+        }
         log.info("[op:simpleAuthCompTest] end");
     }
 }

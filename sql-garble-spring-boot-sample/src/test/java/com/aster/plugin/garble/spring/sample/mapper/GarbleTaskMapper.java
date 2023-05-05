@@ -1,9 +1,10 @@
 package com.aster.plugin.garble.spring.sample.mapper;
 
 import com.aster.plugin.garble.spring.sample.model.GarbleTask;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
-import tk.mybatis.mapper.common.Mapper;
+import org.springframework.beans.factory.annotation.Value;import tk.mybatis.mapper.common.Mapper;
 
 import java.util.List;
 
@@ -51,6 +52,9 @@ public interface GarbleTaskMapper extends Mapper<GarbleTask> {
             "where gt.e_id in (select id from garble_employee) " +
             "and gt.t_name in ('工作2','工作10', '工作7')")
     void updateAuthChild();
+
+    @Insert("insert into garble_task(id, t_name, e_id) values (#{id}, '工作30x', 3000)")
+    void insertAuthSimple(@Value("id") Long id);
 
 
 }
