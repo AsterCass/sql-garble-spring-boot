@@ -50,6 +50,9 @@ public class GarbleAutoConfig {
     private AuthInsertConfig authInsertConfig;
 
     @Resource
+    private AuthUpdateConfig authUpdateConfig;
+
+    @Resource
     private UpdatedDataMsgConfig updatedDataMsgConfig;
 
     private GarbleUpdateInterceptor garbleUpdateInterceptor;
@@ -118,6 +121,25 @@ public class GarbleAutoConfig {
                     }
                 }
                 interceptor.setInsertAuthProperty(properties, methodObjectMap);
+                interceptorList.add(interceptor);
+            }
+            if (garbleConfig.getGarbleFunctionList().contains(GarbleFunctionEnum.UPDATE_AUTHENTICATION.getCode())) {
+                GarbleUpdateInterceptor interceptor = getSingleGarbleUpdateInterceptor();
+                Properties properties = new Properties();
+                properties.putAll(authUpdateConfig.getPropertiesMap());
+                //spring 获取对象
+                Map<Method, Object> methodObjectMap = new HashMap<>();
+                List<Method> methods =
+                        SpecifiedMethodGenerator.loadAuthCodeBySubTypes(
+                                properties.getProperty("authCodePath"),
+                                AuthenticationTypeEnum.UPDATE);
+                if (0 != methods.size()) {
+                    for (Method method : methods) {
+                        methodObjectMap.put(method,
+                                applicationContext.getBean(method.getDeclaringClass()));
+                    }
+                }
+                interceptor.setUpdateAuthProperty(properties, methodObjectMap);
                 interceptorList.add(interceptor);
             }
 

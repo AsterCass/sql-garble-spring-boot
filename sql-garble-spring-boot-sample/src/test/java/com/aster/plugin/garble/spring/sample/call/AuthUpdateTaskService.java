@@ -1,12 +1,17 @@
 package com.aster.plugin.garble.spring.sample.call;
 
+import com.alibaba.fastjson.JSON;
 import com.aster.plugin.garble.enums.AuthenticationStrategyEnum;
 import com.aster.plugin.garble.service.AuthenticationCodeBuilder;
 import com.aster.plugin.garble.service.AuthenticationCodeInterface;
 import org.springframework.stereotype.Service;
 
+import java.util.Collections;
+
 @Service
-public class AuthEmployeeService implements AuthenticationCodeInterface {
+public class AuthUpdateTaskService implements AuthenticationCodeInterface {
+
+
     /**
      * 后去权限code，用于和配置字段相比较
      * {@link AuthenticationStrategyEnum}
@@ -21,8 +26,9 @@ public class AuthEmployeeService implements AuthenticationCodeInterface {
      * @return 鉴权code
      */
     @Override
-    @AuthenticationCodeBuilder(type = 2, tables = {"garble_employee"})
+    @AuthenticationCodeBuilder(type = 1, tables = {"^.*garble_task$"})
     public String authenticationCodeBuilder() {
-        return "1";
+        return JSON.toJSONString(Collections.singletonList("123"));
     }
+
 }

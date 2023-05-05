@@ -21,9 +21,6 @@ public interface GarbleTaskMapper extends Mapper<GarbleTask> {
     @Update("update garble_task set t_name = '工作xx' where e_id = 22")
     void updateMulti();
 
-    /**
-     * 目前不支持
-     */
     @Update("update garble_task gt, garble_employee ge set gt.t_name = '工作xx', ge.e_msg='xxx' " +
             "where ge.id = gt.e_id and gt.e_id = 22")
     void updateMultiTab();
@@ -36,6 +33,24 @@ public interface GarbleTaskMapper extends Mapper<GarbleTask> {
     @Update("update garble_task gt set gt.t_name = '工作xx' " +
             "where gt.e_id in (select id from garble_employee where e_msg = 'qb')")
     void updateChild();
+
+    @Update("update garble_else.garble_task ggt set ggt.update_record = 1 where ggt.e_id = 110 ")
+    void updateAuthElseTask();
+
+    @Update("update garble_task gt, garble_employee ge set gt.t_name = '工作xx', ge.e_msg='xxx' " +
+            "where ge.id = gt.e_id and gt.t_name in ('工作2','工作10', '工作7') ")
+    void updateAuthMultiTab();
+
+
+    @Update("update garble_task join garble_employee ge on garble_task.e_id = ge.id " +
+            "set garble_task.t_name = '工作xx', ge.e_msg='xxx' where garble_task.t_name in ('工作2','工作10', '工作7')")
+    void updateAuthJoin();
+
+
+    @Update("update garble_task gt set gt.t_name = '工作xx' " +
+            "where gt.e_id in (select id from garble_employee) " +
+            "and gt.t_name in ('工作2','工作10', '工作7')")
+    void updateAuthChild();
 
 
 }
